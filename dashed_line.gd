@@ -38,3 +38,32 @@ func _draw() -> void:
 
 		if cap_end:
 			draw_line(segment_start, point_b, color, width, antialiased)
+
+# The following code is more efficient but does not yet work as the
+# draw_multiline function is unfinished.
+
+#	draw_set_transform_matrix(transform.inverse())
+
+#	var length = (point_b - point_a).length()
+#	var normal = (point_b - point_a).normalized()
+#	var dash_step = normal * dash_length
+
+#	# If not long enough point_b dash, draw a line then return.
+#	if length < dash_length:
+#		draw_line(point_a, point_b, color, width, antialiased)
+#		return
+
+#	else:
+#		var point = point_a
+#		var steps = length/dash_length
+#		var points: = []
+
+#		for _start_length in range(0, steps + 1):
+#			points.append(point)
+#			point += dash_step
+
+#		if cap_end:
+#			points.append(point)
+#			points.append(point_b)
+
+#		draw_multiline(points, color, width, antialiased)
